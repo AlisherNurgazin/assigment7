@@ -31,10 +31,11 @@ public class LoginServlet extends HttpServlet {
             if (user.getUsername() == null) {
                 session.setAttribute("username", "Guest");
             }
+            session.setAttribute("user",user);
             req.getRequestDispatcher("forum.jsp").forward(req,resp);
         }
         else {
-            req.setAttribute("message", "Username or Password is wrong!");
+            req.setAttribute("message", "Username or Password is incorrect!!!");
             req.getRequestDispatcher("login.jsp").forward(req, resp);
         }
     }
